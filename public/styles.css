@@ -1,0 +1,32 @@
+:root {
+  --orangeColor: #ffbb00;
+  --greenColor: #6cd72e;
+  --blueColor: #8c82e5;
+  --greyColor: #acacac;
+  --whiteColor: #ffffff;
+  --baseColor: var(--blueColor);
+}
+
+@mixin transition {
+  -webkit-transiton: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
+@mixin corners($radius) {
+  -moz-border-radius: $radius;
+  -webkit-border-radius: $radius;
+  border-radius: $radius;
+  -khtml-border-radius: $radius;
+}
+
+body {
+  background: var(--baseColor);
+  font-family:
+    HelveticaNeue-light,
+    Helvetica Neue Light,
+    Helvetica Neue,
+    Helvetica,
+    Arial,
+    sans-serif;
+}
