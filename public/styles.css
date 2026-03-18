@@ -29,4 +29,120 @@ body {
     Helvetica,
     Arial,
     sans-serif;
+  height: 100%;
+  color: var(--whiteColor);
+  text-align: center;
+}
+
+h1,
+h2 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 100;
+  font-size: 2.6em;
+  text-transform: uppercase;
+}
+
+h3 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 100;
+  font-size: 1.4em;
+  text-transform: uppercase;
+}
+
+#seconds,
+#tenths {
+  font-size: 2em;
+}
+
+button {
+  @include corners(5px);
+  background: var(--baseColor);
+  color: var(--whiteColor);
+  border: 1px solid var(--whiteColor);
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 1.2em;
+  padding: 18px 10px;
+  width: 180px;
+  margin: 10px;
+  outline: none;
+
+  &:hover {
+    @include transition;
+    background: var(--whiteColor);
+    border: 1px solid var(--whiteColor);
+    color: var(--baseColor);
+  }
+}
+
+#container {
+  width: 630px;
+  margin: 10px auto;
+
+  &::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+[data-view="card"] {
+  transform: rotateY("180deg");
+  width: 100px;
+  height: 140px;
+  border: 1px solid #d3cece;
+  border-radius: 5px;
+  float: left;
+  margin: 10px;
+  cursor: pointer;
+  background:
+    linear-gradient(
+      135deg,
+      var(--greyColor) 22px,
+      var(--whiteColor) 22px,
+      var(--whiteColor) 24px,
+      transparent 24px,
+      transparent 67px,
+      var(--whiteColor) 67px,
+      var(--whiteColor) 69px,
+      transparent 69px
+    ),
+    linear-gradient(
+        225deg,
+        var(--greyColor) 22px,
+        var(--whiteColor) 22px,
+        var(--whiteColor) 24px,
+        transparent 24px,
+        transparent 67px,
+        var(--whiteColor) 67px,
+        var(--whiteColor) 69px,
+        transparent 69px
+      )
+      0 64px;
+  background-color: var(--greyColor);
+  background-size: 64px 128px;
+}
+
+.flipped {
+  transition: 0.6s;
+  transform-style: preserve-3d;
+  position: relative;
+  transform: rotateY(180deg);
+}
+
+.correct {
+  opacity: 0.5;
+  cursor: default;
+  transform-style: preserve-3d;
+  position: relative;
+  transform: rotateY(0deg);
+}
+
+$cards: git, html, python, javascript, css, java, php, react, go, csharp;
+
+@each $card in $cards {
+  [data-card="#{$card}"] {
+    background-image: url("../images/#{$card}.png");
+    background-size: cover;
+  }
 }
