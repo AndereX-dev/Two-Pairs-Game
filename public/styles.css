@@ -8,7 +8,7 @@
 }
 
 @mixin transition {
-  -webkit-transiton: all 0.5s ease-in-out;
+  -webkit-transition: all 0.5s ease-in-out;
   -moz-transition: all 0.5s ease-in-out;
   transition: all 0.5s ease-in-out;
 }
@@ -87,7 +87,8 @@ button {
 }
 
 [data-view="card"] {
-  transform: rotateY("180deg");
+  backface-visibility: hidden;
+  transform: rotateY(180deg);
   width: 100px;
   height: 140px;
   border: 1px solid #d3cece;
@@ -95,6 +96,7 @@ button {
   float: left;
   margin: 10px;
   cursor: pointer;
+  background-color: var(--greyColor);
   background:
     linear-gradient(
       135deg,
@@ -136,6 +138,47 @@ button {
   transform-style: preserve-3d;
   position: relative;
   transform: rotateY(0deg);
+}
+
+[data-item="git"].flipped {
+  background-image: url("/images/logo/git-icon.svg");
+  background-size: cover;
+}
+[data-item="html"].flipped {
+  background-image: url("/images/logo/html-5-icon.svg");
+  background-size: cover;
+}
+[data-item="python"].flipped {
+  background-image: url("/images/logo/python-icon.svg");
+  background-size: cover;
+}
+[data-item="javascript"].flipped {
+  background-image: url("/images/logo/javascript-icon.svg");
+  background-size: cover;
+}
+[data-item="css"].flipped {
+  background-image: url("/images/logo/css-3-icon.svg");
+  background-size: cover;
+}
+[data-item="java"].flipped {
+  background-image: url("/images/logo/java-icon.svg");
+  background-size: cover;
+}
+[data-item="php"].flipped {
+  background-image: url("/images/logo/php-icon.svg");
+  background-size: cover;
+}
+[data-item="react"].flipped {
+  background-image: url("/images/logo/react-icon.svg");
+  background-size: cover;
+}
+[data-item="go"].flipped {
+  background-image: url("/images/logo/go-icon.svg");
+  background-size: cover;
+}
+[data-item="csharp"].flipped {
+  background-image: url("/images/logo/csharp-icon.svg");
+  background-size: cover;
 }
 
 $cards: git, html, python, javascript, css, java, php, react, go, csharp;
