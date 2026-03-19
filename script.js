@@ -36,8 +36,8 @@ document.addEventListener("DOMContentLoaded", () => {
     firstCard.classList.add("correct");
     secondCard.classList.add("correct");
 
-    firstCard.removeEventlistener("click", flipcard);
-    secondCard.removeEventlistener("click", flipcard);
+    firstCard.removeEventListener("click", flipcard);
+    secondCard.removeEventListener("click", flipcard);
 
     resetBoard();
     checkWin();
