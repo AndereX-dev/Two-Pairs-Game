@@ -36,6 +36,9 @@ document.addEventListener("DOMContentLoaded", () => {
     firstCard.classList.add("correct");
     secondCard.classList.add("correct");
 
+    firstCard.removeEventlistener("click", flipcard);
+    secondCard.removeEventlistener("click", flipcard);
+
     resetBoard();
     checkWin();
   }
@@ -84,7 +87,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const allCorrect = document.querySelectorAll(".correct").length;
     if (allCorrect === cards.length) {
       stopTimer();
-      alert(`Congratulation! You used ${seconds}:${tenths} second's`);
+      setTimeout(() => {
+        alert(`Congratulation! You used ${seconds}:${tenths} seconds.`);
+      }, 500);
     }
   }
 
@@ -97,6 +102,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     cards.forEach((card) => {
       card.classList.remove("flipped", "correct");
+      card.addEventListener("click", flipcard);
     });
 
     setTimeout(shuffle, 500);

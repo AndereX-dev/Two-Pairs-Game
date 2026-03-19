@@ -1,8 +1,8 @@
 :root {
   --orangeColor: #ffbb00;
   --greenColor: #6cd72e;
-  --blueColor: #8c82e5;
-  --greyColor: #acacac;
+  --blueColor: #a29bfe;
+  --greyColor: #7f8c8d;
   --whiteColor: #ffffff;
   --baseColor: var(--blueColor);
 }
@@ -12,7 +12,13 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   height: 100%;
   color: var(--whiteColor);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   text-align: center;
+  min-height: 100vh;
+  margin: 0;
 }
 
 h1,
@@ -40,9 +46,9 @@ h3 {
 #container {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   width: 630px;
   margin: 10px auto;
-  display: block;
 }
 
 #container::after {
@@ -54,9 +60,8 @@ h3 {
 [data-view="card"] {
   width: 100px;
   height: 140px;
-  border: 1px solid #d3cece;
+  border: 1px solid var(--whiteColor);
   border-radius: 5px;
-  float: left;
   margin: 10px;
   cursor: pointer;
   background-color: var(--greyColor);
@@ -64,68 +69,85 @@ h3 {
   background: linear-gradient(
     135deg,
     var(--greyColor) 22px,
-    var(--whiteColor) 22px,
-    var(--whiteColor) 24px,
+    #bdc3c7 22px,
+    #bdc3c7 24px,
     transparent 24px,
     transparent 67px,
-    var(--whiteColor) 67px,
-    var(--whiteColor) 69px,
+    #bdc3c7 67px,
+    #bdc3c7 69px,
     transparent 69px
   );
   background-size: 64px 128px;
-  transition: transform 0.5s ease-in-out;
+  transition:
+    transform 0.5s ease-in-out,
+    opacity 0.3s ease;
 }
 
-.flipped {
+.flipped,
+.correct {
   transform: rotateY(180deg);
-  background-image: none;
+  background-image: none !important;
   background-color: var(--whiteColor);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-[data-item="git"].flipped {
+[data-item].flipped::after,
+[data-item].correct::after {
+  content: "";
+  width: 80%;
+  height: 80%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+[data-item="git"].flipped::after {
   background-image: url("/images/logo/git-icon.svg");
   background-size: cover;
 }
-[data-item="html"].flipped {
+[data-item="html"].flipped::after {
   background-image: url("/images/logo/html-5-icon.svg");
   background-size: cover;
 }
-[data-item="python"].flipped {
+[data-item="python"].flipped::after {
   background-image: url("/images/logo/python-icon.svg");
   background-size: cover;
 }
-[data-item="javascript"].flipped {
+[data-item="javascript"].flipped::after {
   background-image: url("/images/logo/javascript-icon.svg");
   background-size: cover;
 }
-[data-item="css"].flipped {
+[data-item="css"].flipped::after {
   background-image: url("/images/logo/css-3-icon.svg");
   background-size: cover;
 }
-[data-item="java"].flipped {
-  background-image: url("/images/logo/java-icon.svg");
+[data-item="java"].flipped::after {
+  background-image: url("/images/logo/java-4-icon.svg");
   background-size: cover;
 }
-[data-item="php"].flipped {
+[data-item="php"].flipped::after {
   background-image: url("/images/logo/php-icon.svg");
   background-size: cover;
 }
-[data-item="react"].flipped {
+[data-item="react"].flipped::after {
   background-image: url("/images/logo/react-icon.svg");
   background-size: cover;
 }
-[data-item="go"].flipped {
+[data-item="go"].flipped::after {
   background-image: url("/images/logo/go-icon.svg");
   background-size: cover;
 }
-[data-item="csharp"].flipped {
+[data-item="csharp"].flipped::after {
   background-image: url("/images/logo/csharp-icon.svg");
   background-size: cover;
 }
 
 .correct {
-  opacity: 0.5;
+  opacity: 0.3;
   cursor: default;
+  pointer-events: none;
 }
 
 #reset-btn {
