@@ -99,6 +99,10 @@ document.addEventListener("DOMContentLoaded", () => {
       card.classList.remove("flipped", "correct");
     });
 
-    setTimeout;
+    setTimeout(shuffle, 500);
   });
+
+  cards.forEach((card) => card.addEventListener("click", flipcard));
+
+  shuffle();
 });
