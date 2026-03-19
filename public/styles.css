@@ -7,28 +7,9 @@
   --baseColor: var(--blueColor);
 }
 
-@mixin transition {
-  -webkit-transition: all 0.5s ease-in-out;
-  -moz-transition: all 0.5s ease-in-out;
-  transition: all 0.5s ease-in-out;
-}
-
-@mixin corners($radius) {
-  -moz-border-radius: $radius;
-  -webkit-border-radius: $radius;
-  border-radius: $radius;
-  -khtml-border-radius: $radius;
-}
-
 body {
   background: var(--baseColor);
-  font-family:
-    HelveticaNeue-light,
-    Helvetica Neue Light,
-    Helvetica Neue,
-    Helvetica,
-    Arial,
-    sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   height: 100%;
   color: var(--whiteColor);
   text-align: center;
@@ -36,16 +17,18 @@ body {
 
 h1,
 h2 {
-  font-family: "Roboto", sans-serif;
-  font-weight: 100;
+  font-family: "Rubik Iso", system-ui;
+  font-weight: 400;
   font-size: 2.6em;
+  font-style: normal;
   text-transform: uppercase;
 }
 
 h3 {
-  font-family: "Roboto", sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   font-weight: 100;
   font-size: 1.4em;
+  font-style: normal;
   text-transform: uppercase;
 }
 
@@ -54,41 +37,19 @@ h3 {
   font-size: 2em;
 }
 
-button {
-  @include corners(5px);
-  background: var(--baseColor);
-  color: var(--whiteColor);
-  border: 1px solid var(--whiteColor);
-  text-decoration: none;
-  cursor: pointer;
-  font-size: 1.2em;
-  padding: 18px 10px;
-  width: 180px;
-  margin: 10px;
-  outline: none;
-
-  &:hover {
-    @include transition;
-    background: var(--whiteColor);
-    border: 1px solid var(--whiteColor);
-    color: var(--baseColor);
-  }
-}
-
 #container {
   width: 630px;
   margin: 10px auto;
+  display: block;
+}
 
-  &::after {
-    content: "";
-    display: table;
-    clear: both;
-  }
+#container::after {
+  content: "";
+  display: table;
+  clear: both;
 }
 
 [data-view="card"] {
-  backface-visibility: hidden;
-  transform: rotateY(180deg);
   width: 100px;
   height: 140px;
   border: 1px solid #d3cece;
@@ -97,47 +58,26 @@ button {
   margin: 10px;
   cursor: pointer;
   background-color: var(--greyColor);
-  background:
-    linear-gradient(
-      135deg,
-      var(--greyColor) 22px,
-      var(--whiteColor) 22px,
-      var(--whiteColor) 24px,
-      transparent 24px,
-      transparent 67px,
-      var(--whiteColor) 67px,
-      var(--whiteColor) 69px,
-      transparent 69px
-    ),
-    linear-gradient(
-        225deg,
-        var(--greyColor) 22px,
-        var(--whiteColor) 22px,
-        var(--whiteColor) 24px,
-        transparent 24px,
-        transparent 67px,
-        var(--whiteColor) 67px,
-        var(--whiteColor) 69px,
-        transparent 69px
-      )
-      0 64px;
-  background-color: var(--greyColor);
+  backface-visibility: hidden;
+  background: linear-gradient(
+    135deg,
+    var(--greyColor) 22px,
+    var(--whiteColor) 22px,
+    var(--whiteColor) 24px,
+    transparent 24px,
+    transparent 67px,
+    var(--whiteColor) 67px,
+    var(--whiteColor) 69px,
+    transparent 69px
+  );
   background-size: 64px 128px;
+  transition: transform 0.5s ease-in-out;
 }
 
 .flipped {
-  transition: 0.6s;
-  transform-style: preserve-3d;
-  position: relative;
   transform: rotateY(180deg);
-}
-
-.correct {
-  opacity: 0.5;
-  cursor: default;
-  transform-style: preserve-3d;
-  position: relative;
-  transform: rotateY(0deg);
+  background-image: none;
+  background-color: var(--whiteColor);
 }
 
 [data-item="git"].flipped {
@@ -181,11 +121,27 @@ button {
   background-size: cover;
 }
 
-$cards: git, html, python, javascript, css, java, php, react, go, csharp;
+.correct {
+  opacity: 0.5;
+  cursor: default;
+}
 
-@each $card in $cards {
-  [data-card="#{$card}"] {
-    background-image: url("../images/#{$card}.png");
-    background-size: cover;
-  }
+#reset-btn {
+  background-color: var(--whiteColor);
+  color: var(--baseColor);
+  border: 2px solid var(--whiteColor);
+  border-radius: 5px;
+  box-shadow:
+    black 0px 4px 6px -1px,
+    black 0px 2px 4px -1px;
+  padding: 10px 20px;
+  font-size: 1.1em;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: bold;
+}
+
+#reset-btn:hover {
+  background-color: var(--baseColor);
+  color: var(--whiteColor);
 }
