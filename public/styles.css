@@ -50,7 +50,8 @@ h3 {
   flex-wrap: wrap;
   justify-content: center;
   width: 630px;
-  margin: 10px auto;
+  margin: 20px auto;
+  min-height: 640px;
 }
 
 #container::after {
@@ -67,7 +68,11 @@ h3 {
   margin: 10px;
   cursor: pointer;
   background-color: var(--cardBackBaseColor);
-  backface-visibility: hidden;
+  position: relative;
+  transform-style: preserve-3d;
+  transform:
+    0.5s ease-in-out,
+    opacity 0.3s ease;
   background: linear-gradient(
     135deg,
     var(--cardBackBaseColor) 22px,
@@ -80,9 +85,6 @@ h3 {
     var(--cardBackBaseColor) 69px
   );
   background-size: 64px 128px;
-  transition:
-    transform 0.5s ease-in-out,
-    opacity 0.3s ease;
 }
 
 .flipped,
@@ -164,6 +166,8 @@ h3 {
   cursor: default;
   pointer-events: none;
   background-size: contain;
+  transform: rotateY(180deg);
+  visibility: visible;
 }
 
 #reset-btn {

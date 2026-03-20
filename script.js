@@ -84,17 +84,17 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function checkWin() {
-    setTimeout(() => {
-      const allCorrect = document.querySelectorAll(".correct").length;
-      const totalCards = document.querySelectorAll(
-        "[data-veiw ='card']",
-      ).length;
+    const allCorrect = document.querySelectorAll(".correct").length;
+    const totalCards = document.querySelectorAll("[data-view='card']").length;
 
-      if (allCorrect === totalCards && totalCards > 0) {
-        stopTimer();
+    console.log(`Status: ${allCorrect} of ${totalCards} found`);
+
+    if (allCorrect === totalCards && totalCards > 0) {
+      stopTimer();
+      setTimeout(() => {
         alert(`Congratulations! You used ${seconds}:${tenths} seconds`);
-      }
-    }, 100);
+      }, 600);
+    }
   }
 
   resetBtn.addEventListener("click", () => {
@@ -108,7 +108,7 @@ document.addEventListener("DOMContentLoaded", () => {
       card.classList.remove("flipped", "correct");
       card.addEventListener("click", flipcard);
     });
-
+    resetBoard();
     setTimeout(shuffle, 500);
   });
 
