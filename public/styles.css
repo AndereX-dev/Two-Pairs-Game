@@ -4,6 +4,8 @@
   --blueColor: #a29bfe;
   --greyColor: #7f8c8d;
   --whiteColor: #ffffff;
+
+  --cardBackBaseColor: #b65595;
   --baseColor: var(--blueColor);
 }
 
@@ -64,18 +66,18 @@ h3 {
   border-radius: 5px;
   margin: 10px;
   cursor: pointer;
-  background-color: var(--greyColor);
+  background-color: var(--cardBackBaseColor);
   backface-visibility: hidden;
   background: linear-gradient(
     135deg,
-    var(--greyColor) 22px,
-    #bdc3c7 22px,
-    #bdc3c7 24px,
-    transparent 24px,
-    transparent 67px,
-    #bdc3c7 67px,
-    #bdc3c7 69px,
-    transparent 69px
+    var(--cardBackBaseColor) 22px,
+    rgba(255, 255, 255, 0.1) 22px,
+    rgba(255, 255, 255, 0.1) 24px,
+    var(--cardBackBaseColor) 24px,
+    var(--cardBackBaseColor) 67px,
+    rgba(255, 255, 255, 0.1) 67px,
+    rgba(255, 255, 255, 0.1) 69px,
+    var(--cardBackBaseColor) 69px
   );
   background-size: 64px 128px;
   transition:
@@ -86,8 +88,8 @@ h3 {
 .flipped,
 .correct {
   transform: rotateY(180deg);
-  background-image: none !important;
-  background-color: var(--whiteColor);
+  background-image: none;
+  background-color: var(--whiteColor) !important;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -98,56 +100,69 @@ h3 {
   content: "";
   width: 80%;
   height: 80%;
+  display: block;
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
 }
 
-[data-item="git"].flipped::after {
-  background-image: url("/images/logo/git-icon.svg");
+[data-item="git"].flipped::after,
+[data-item="git"].correct::after {
+  background-image: url("/images/logo/git-icon.svg") !important;
   background-size: cover;
 }
-[data-item="html"].flipped::after {
-  background-image: url("/images/logo/html-5-icon.svg");
+[data-item="html"].flipped::after,
+[data-item="html"].correct::after {
+  background-image: url("/images/logo/html-5-icon.svg") !important;
   background-size: cover;
 }
-[data-item="python"].flipped::after {
-  background-image: url("/images/logo/python-icon.svg");
+[data-item="python"].flipped::after,
+[data-item="python"].correct::after {
+  background-image: url("/images/logo/python-icon.svg") !important;
   background-size: cover;
 }
-[data-item="javascript"].flipped::after {
-  background-image: url("/images/logo/javascript-icon.svg");
+[data-item="javascript"].flipped::after,
+[data-item="javascript"].correct::after {
+  background-image: url("/images/logo/javascript-icon.svg") !important;
   background-size: cover;
 }
-[data-item="css"].flipped::after {
-  background-image: url("/images/logo/css-3-icon.svg");
+[data-item="css"].flipped::after,
+[data-item="css"].correct::after {
+  background-image: url("/images/logo/css-3-icon.svg") !important;
   background-size: cover;
 }
-[data-item="java"].flipped::after {
-  background-image: url("/images/logo/java-4-icon.svg");
+[data-item="java"].flipped::after,
+[data-item="java"].correct::after {
+  background-image: url("/images/logo/java-4-icon.svg") !important;
   background-size: cover;
 }
-[data-item="php"].flipped::after {
-  background-image: url("/images/logo/php-icon.svg");
+[data-item="php"].flipped::after,
+[data-item="php"].correct::after {
+  background-image: url("/images/logo/php-icon.svg") !important;
   background-size: cover;
 }
-[data-item="react"].flipped::after {
-  background-image: url("/images/logo/react-icon.svg");
+[data-item="react"].flipped::after,
+[data-item="react"].correct::after {
+  background-image: url("/images/logo/react-icon.svg") !important;
   background-size: cover;
 }
-[data-item="go"].flipped::after {
-  background-image: url("/images/logo/go-icon.svg");
+[data-item="go"].flipped::after,
+[data-item="go"].correct::after {
+  background-image: url("/images/logo/go-icon.svg") !important;
   background-size: cover;
 }
-[data-item="csharp"].flipped::after {
-  background-image: url("/images/logo/csharp-icon.svg");
+[data-item="csharp"].flipped::after,
+[data-item="csharp"].correct::after {
+  background-image: url("/images/logo/csharp-icon.svg") !important;
   background-size: cover;
 }
 
 .correct {
-  opacity: 0.3;
+  opacity: 0.35;
+  transition: opacity 0.5s ease;
   cursor: default;
   pointer-events: none;
+  background-size: contain;
 }
 
 #reset-btn {
