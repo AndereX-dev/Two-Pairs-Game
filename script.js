@@ -84,13 +84,17 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function checkWin() {
-    const allCorrect = document.querySelectorAll(".correct").length;
-    if (allCorrect === cards.length) {
-      stopTimer();
-      setTimeout(() => {
-        alert(`Congratulation! You used ${seconds}:${tenths} seconds.`);
-      }, 500);
-    }
+    setTimeout(() => {
+      const allCorrect = document.querySelectorAll(".correct").length;
+      const totalCards = document.querySelectorAll(
+        "[data-veiw ='card']",
+      ).length;
+
+      if (allCorrect === totalCards && totalCards > 0) {
+        stopTimer();
+        alert(`Congratulations! You used ${seconds}:${tenths} seconds`);
+      }
+    }, 100);
   }
 
   resetBtn.addEventListener("click", () => {

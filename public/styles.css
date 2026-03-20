@@ -103,58 +103,59 @@ h3 {
   display: block;
   background-position: center;
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: contain !important;
+  backface-visibility: visible;
 }
 
 [data-item="git"].flipped::after,
 [data-item="git"].correct::after {
   background-image: url("/images/logo/git-icon.svg") !important;
-  background-size: cover;
+  background-size: contain !important;
 }
 [data-item="html"].flipped::after,
 [data-item="html"].correct::after {
   background-image: url("/images/logo/html-5-icon.svg") !important;
-  background-size: cover;
+  background-size: contain !important;
 }
 [data-item="python"].flipped::after,
 [data-item="python"].correct::after {
   background-image: url("/images/logo/python-icon.svg") !important;
-  background-size: cover;
+  background-size: contain !important;
 }
 [data-item="javascript"].flipped::after,
 [data-item="javascript"].correct::after {
   background-image: url("/images/logo/javascript-icon.svg") !important;
-  background-size: cover;
+  background-size: contain !important;
 }
 [data-item="css"].flipped::after,
 [data-item="css"].correct::after {
   background-image: url("/images/logo/css-3-icon.svg") !important;
-  background-size: cover;
+  background-size: contain !important;
 }
 [data-item="java"].flipped::after,
 [data-item="java"].correct::after {
   background-image: url("/images/logo/java-4-icon.svg") !important;
-  background-size: cover;
+  background-size: contain !important;
 }
 [data-item="php"].flipped::after,
 [data-item="php"].correct::after {
   background-image: url("/images/logo/php-icon.svg") !important;
-  background-size: cover;
+  background-size: contain !important;
 }
 [data-item="react"].flipped::after,
 [data-item="react"].correct::after {
   background-image: url("/images/logo/react-icon.svg") !important;
-  background-size: cover;
+  background-size: contain !important;
 }
 [data-item="go"].flipped::after,
 [data-item="go"].correct::after {
   background-image: url("/images/logo/go-icon.svg") !important;
-  background-size: cover;
+  background-size: contain !important;
 }
 [data-item="csharp"].flipped::after,
 [data-item="csharp"].correct::after {
   background-image: url("/images/logo/csharp-icon.svg") !important;
-  background-size: cover;
+  background-size: contain !important;
 }
 
 .correct {
