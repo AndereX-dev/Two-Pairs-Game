@@ -191,3 +191,33 @@ h3 {
   background-color: var(--baseColor);
   color: var(--whiteColor);
 }
+
+@media screen and (max-width: 600px) {
+  h1 {
+    font-size: 1.8em;
+  }
+  #container {
+    width: 95%;
+    padding: 10px;
+    gap: 5px;
+  }
+
+  [data-view="card"] {
+    width: calc(25% - 10px);
+    height: 110px;
+    margin: 5px;
+  }
+
+  [data-item].flipped::after,
+  [data-item].correct::after {
+    width: 70%;
+    height: 70%;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  [data-view="card"] {
+    width: calc(33.33% - 10px);
+    height: 100px;
+  }
+}
