@@ -91,8 +91,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (allCorrect === totalCards && totalCards > 0) {
       stopTimer();
+      const finalScore = `${seconds}:${tenths}`;
+
       setTimeout(() => {
-        alert(`Congratulations! You used ${seconds}:${tenths} seconds`);
+        document.getElementById("finalTime").innerText = finalScore;
+        document.getElementById("nameModal").style.display = "flex";
       }, 600);
     }
   }
@@ -110,6 +113,22 @@ document.addEventListener("DOMContentLoaded", () => {
     });
     resetBoard();
     setTimeout(shuffle, 500);
+  });
+
+  document.getElementById("saveScoreBtn").addEventListener("click", () => {
+    const name = document.getElementById("playerName").value || "Anonym";
+    const time = document.getElementById("finalTime").innerText;
+
+    const highscores =
+      JSON.parse(localStorage.getItem("memoryHighscores")) || [];
+    highscores.push({ name, time, rawTime: seconds * 100 + tenths });
+    highscores.sort((a, b) => a.rawTime - b.rawTime);
+
+    localStorage.setItem(
+      "memoryHighscores",
+      JSON.stringify(highscores.slice(0, 10)),
+    );
+    window.location.href = "highscores.html";
   });
 
   cards.forEach((card) => card.addEventListener("click", flipcard));

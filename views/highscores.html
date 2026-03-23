@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Highscores</title>
+    <link
+      rel="stylesheet"
+      href="/public/styles.css"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="/images/cards.png"
+    />
+    <link
+      rel="preconnect"
+      href="https://fonts.googleapis.com"
+    />
+    <link
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik+Iso&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <h1>Leaderboard</h1>
+    <div
+      id="scoreList"
+      style="
+        background: white;
+        color: black;
+        padding: 20px;
+        border-radius: 10px;
+        min-width: 300px;
+      "
+    ></div>
+    <br />
+    <a
+      href="index.html"
+      id="reset-btn"
+      style="text-decoration: none"
+      >Play again</a
+    >
+
+    <script>
+      const scoreList = document.getElementById("scoreList");
+      const highscores =
+        JSON.parse(localStorage.getItem("memoryHighscores")) || [];
+
+      if (highscores.length === 0) {
+        scoreList.innerHTML = "<p>No topscore set yet!</p>";
+      } else {
+        scoreList.innerHTML = highscores
+          .map(
+            (s, index) =>
+              `<p>${index + 1}. <strong>${s.name}</strong> - ${s.time} seconds</p>`,
+          )
+          .join("");
+      }
+    </script>
+  </body>
+</html>
