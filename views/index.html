@@ -37,92 +37,33 @@
   <body>
     <div class="wrapper">
       <h1>Two Pair's Game</h1>
+
+      <div class="difficulty-container">
+        <button
+          class="diff-btn"
+          data-limit="6"
+        >
+          Easy (12)
+        </button>
+        <button
+          class="diff-btn"
+          data-limit="10"
+        >
+          Middle (20)
+        </button>
+        <button
+          class="diff-btn"
+          data-limit="15"
+        >
+          Hard (30)
+        </button>
+      </div>
       <h3>Click any cards to begin!</h3>
       <p><span id="seconds">00</span>:<span id="tenths">00</span></p>
-      <p id="text"></p>
-      <div id="container">
-        <div
-          data-item="git"
-          data-view="card"
-        ></div>
-        <div
-          data-item="html"
-          data-view="card"
-        ></div>
-        <div
-          data-item="python"
-          data-view="card"
-        ></div>
-        <div
-          data-item="javascript"
-          data-view="card"
-        ></div>
-        <div
-          data-item="css"
-          data-view="card"
-        ></div>
-        <div
-          data-item="java"
-          data-view="card"
-        ></div>
-        <div
-          data-item="php"
-          data-view="card"
-        ></div>
-        <div
-          data-item="react"
-          data-view="card"
-        ></div>
-        <div
-          data-item="go"
-          data-view="card"
-        ></div>
-        <div
-          data-item="csharp"
-          data-view="card"
-        ></div>
-        <div
-          data-item="python"
-          data-view="card"
-        ></div>
-        <div
-          data-item="react"
-          data-view="card"
-        ></div>
-        <div
-          data-item="git"
-          data-view="card"
-        ></div>
-        <div
-          data-item="javascript"
-          data-view="card"
-        ></div>
-        <div
-          data-item="html"
-          data-view="card"
-        ></div>
-        <div
-          data-item="css"
-          data-view="card"
-        ></div>
-        <div
-          data-item="csharp"
-          data-view="card"
-        ></div>
-        <div
-          data-item="php"
-          data-view="card"
-        ></div>
-        <div
-          data-item="java"
-          data-view="card"
-        ></div>
-        <div
-          data-item="go"
-          data-view="card"
-        ></div>
-      </div>
+
+      <div id="container"></div>
     </div>
+
     <br />
     <button id="reset-btn">Restart Game</button>
     <div
