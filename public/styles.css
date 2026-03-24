@@ -161,6 +161,31 @@ h3 {
   background-image: url("/images/logo/csharp-icon.svg") !important;
   background-size: contain !important;
 }
+[data-item="csharp"].flipped::after,
+[data-item="csharp"].correct::after {
+  background-image: url("/images/logo/cplusplus-icon.svg") !important;
+  background-size: contain !important;
+}
+[data-item="csharp"].flipped::after,
+[data-item="csharp"].correct::after {
+  background-image: url("/images/logo/nextjs-icon.svg") !important;
+  background-size: contain !important;
+}
+[data-item="csharp"].flipped::after,
+[data-item="csharp"].correct::after {
+  background-image: url("/images/logo/ruby-icon.svg") !important;
+  background-size: contain !important;
+}
+[data-item="csharp"].flipped::after,
+[data-item="csharp"].correct::after {
+  background-image: url("/images/logo/nodejs-icon.svg") !important;
+  background-size: contain !important;
+}
+[data-item="csharp"].flipped::after,
+[data-item="csharp"].correct::after {
+  background-image: url("/images/logo/ubuntu-icon.svg") !important;
+  background-size: contain !important;
+}
 
 .correct {
   opacity: 0.35;

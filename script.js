@@ -32,6 +32,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function createBoard(numberOfPairs) {
     container.innerHTML = "";
+    stopTimer();
+    resetTimerUI();
+    resetBoard();
+    currentPairs = numberOfPairs;
+
+    const selectedIcons = allIcons.slice(0, numberOfPairs);
+    const gameIcons = [...selectedIcons, ...selectedIcons];
+    gameIcons.sort(() => Math.random() - 0.5);
+    gameIcons.forEach((icon) => {
+      const card = document.createElement("div");
+      card.dataset.view = "card";
+      card.dataset.item = icon;
+      card.addEventListener("click", flipcard);
+      container.appendChild(card);
+    });
+    container.style.maxWidth = numberOfPairs > 15 ? "800px" : "630px";
   }
 
   function flipcard() {
@@ -81,11 +97,21 @@ document.addEventListener("DOMContentLoaded", () => {
     [firstCard, secondCard] = [null, null];
   }
 
-  function shuffle() {
-    cards.forEach((card) => {
-      let randomPos = Math.floor(Math.random() * 20);
-      card.style.order = randomPos;
-    });
+  function checkWin() {
+    const allCorrect = document.querySelectorAll(".correct").length;
+    const totalCards = document.querySelectorAll("[data-view='card']").length;
+
+    console.log(`Status: ${allCorrect} of ${totalCards} found`);
+
+    if (allCorrect === totalCards && totalCards > 0) {
+      stopTimer();
+      const finalScore = `${seconds}:${tenths}`;
+
+      setTimeout(() => {
+        document.getElementById("finalTime").innerText = finalScore;
+        document.getElementById("nameModal").style.display = "flex";
+      }, 600);
+    }
   }
 
   function startTimer() {
@@ -106,36 +132,22 @@ document.addEventListener("DOMContentLoaded", () => {
     interval = null;
   }
 
-  function checkWin() {
-    const allCorrect = document.querySelectorAll(".correct").length;
-    const totalCards = document.querySelectorAll("[data-view='card']").length;
-
-    console.log(`Status: ${allCorrect} of ${totalCards} found`);
-
-    if (allCorrect === totalCards && totalCards > 0) {
-      stopTimer();
-      const finalScore = `${seconds}:${tenths}`;
-
-      setTimeout(() => {
-        document.getElementById("finalTime").innerText = finalScore;
-        document.getElementById("nameModal").style.display = "flex";
-      }, 600);
-    }
-  }
-
-  resetBtn.addEventListener("click", () => {
-    stopTimer();
+  function resetTimerUI() {
     seconds = 0;
     tenths = 0;
     secondsHtml.innerHTML = "00";
     tenthsHtml.innerHTML = "00";
+  }
 
-    cards.forEach((card) => {
-      card.classList.remove("flipped", "correct");
-      card.addEventListener("click", flipcard);
+  document.querySelectorAll("diff-btn").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const limit = parseInt(btn.dataset.limit);
+      createBoard(limit);
     });
-    resetBoard();
-    setTimeout(shuffle, 500);
+  });
+
+  resetBtn.addEventListener("click", () => {
+    createBoard(currentPairs);
   });
 
   document.getElementById("saveScoreBtn").addEventListener("click", () => {
@@ -144,7 +156,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const highscores =
       JSON.parse(localStorage.getItem("memoryHighscores")) || [];
-    highscores.push({ name, time, rawTime: seconds * 100 + tenths });
+    highscores.push({
+      name,
+      time,
+      rawTime: seconds * 100 + tenths,
+      difficulty:
+        currentPairs === 6 ? "Easy" : currentPairs === 10 ? "Medium" : "Hard",
+    });
     highscores.sort((a, b) => a.rawTime - b.rawTime);
 
     localStorage.setItem(
@@ -154,7 +172,5 @@ document.addEventListener("DOMContentLoaded", () => {
     window.location.href = "highscores.html";
   });
 
-  cards.forEach((card) => card.addEventListener("click", flipcard));
-
-  shuffle();
+  createBoard(10);
 });

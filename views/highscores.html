@@ -61,7 +61,7 @@
         scoreList.innerHTML = highscores
           .map(
             (s, index) =>
-              `<p>${index + 1}. <strong>${s.name}</strong> - ${s.time} seconds</p>`,
+              `<p>${index + 1}. <strong>${s.name}</strong> - ${s.time} ${s.difficulty ? "(" + s.difficulty + ")" : ""} seconds</p>`,
           )
           .join("");
       }
