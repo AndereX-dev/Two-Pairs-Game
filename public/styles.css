@@ -60,6 +60,9 @@ h3 {
   border-radius: 5px;
   cursor: pointer;
   transition: 0.3;
+  box-shadow:
+    black 0px 4px 6px -1px,
+    black 0px 2px 4px -1px;
 }
 
 .diff-btn:hover {
