@@ -183,28 +183,28 @@ h3 {
   background-image: url("/images/logo/csharp-icon.svg") !important;
   background-size: contain !important;
 }
-[data-item="csharp"].flipped::after,
-[data-item="csharp"].correct::after {
+[data-item="cplusplus"].flipped::after,
+[data-item="cplusplus"].correct::after {
   background-image: url("/images/logo/cplusplus-icon.svg") !important;
   background-size: contain !important;
 }
-[data-item="csharp"].flipped::after,
-[data-item="csharp"].correct::after {
+[data-item="nextjs"].flipped::after,
+[data-item="nextjs"].correct::after {
   background-image: url("/images/logo/nextjs-icon.svg") !important;
   background-size: contain !important;
 }
-[data-item="csharp"].flipped::after,
-[data-item="csharp"].correct::after {
+[data-item="ruby"].flipped::after,
+[data-item="ruby"].correct::after {
   background-image: url("/images/logo/ruby-icon.svg") !important;
   background-size: contain !important;
 }
-[data-item="csharp"].flipped::after,
-[data-item="csharp"].correct::after {
+[data-item="nodejs"].flipped::after,
+[data-item="nodejs"].correct::after {
   background-image: url("/images/logo/nodejs-icon.svg") !important;
   background-size: contain !important;
 }
-[data-item="csharp"].flipped::after,
-[data-item="csharp"].correct::after {
+[data-item="ubuntu"].flipped::after,
+[data-item="ubuntu"].correct::after {
   background-image: url("/images/logo/ubuntu-icon.svg") !important;
   background-size: contain !important;
 }
