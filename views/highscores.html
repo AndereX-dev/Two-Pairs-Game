@@ -50,6 +50,22 @@
       >Play again</a
     >
 
+    <button
+      id="clear-btn"
+      style="
+        background-color: #9b55b6;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: bold;
+        margin-top: 20px;
+      "
+    >
+      Clear Leaderboard
+    </button>
+
     <script>
       const scoreList = document.getElementById("scoreList");
       const highscores =
@@ -65,6 +81,13 @@
           )
           .join("");
       }
+
+      document.getElementById("clear-btn").addEventListener("click", () => {
+        if (confirm("Are you sure you want to reset the records?")) {
+          localStorage.removeItem("memoryHighscores");
+          location.reload();
+        }
+      });
     </script>
   </body>
 </html>
