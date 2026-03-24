@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
       card.addEventListener("click", flipcard);
       container.appendChild(card);
     });
-    container.style.maxWidth = numberOfPairs > 15 ? "800px" : "630px";
+    container.style.maxWidth = numberOfPairs > 10 ? "800px" : "630px";
   }
 
   function flipcard() {
@@ -139,7 +139,7 @@ document.addEventListener("DOMContentLoaded", () => {
     tenthsHtml.innerHTML = "00";
   }
 
-  document.querySelectorAll("diff-btn").forEach((btn) => {
+  document.querySelectorAll(".diff-btn").forEach((btn) => {
     btn.addEventListener("click", () => {
       const limit = parseInt(btn.dataset.limit);
       createBoard(limit);
