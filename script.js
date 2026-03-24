@@ -1,15 +1,38 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const cards = document.querySelectorAll("[data-view='card']");
+  const container = document.getElementById("container");
   const secondsHtml = document.getElementById("seconds");
   const tenthsHtml = document.getElementById("tenths");
   const resetBtn = document.getElementById("reset-btn");
 
+  const allIcons = [
+    "git",
+    "html",
+    "python",
+    "javascript",
+    "css",
+    "java",
+    "php",
+    "react",
+    "go",
+    "csharp",
+    "cplusplus",
+    "nextjs",
+    "ruby",
+    "nodejs",
+    "ubuntu",
+  ];
+
+  let firstCard, secondCard;
   let hasFlippedCard = false;
   let lockBoard = false;
-  let firstCard, secondCard;
   let seconds = 0;
   let tenths = 0;
   let interval;
+  let currentPairs = 15;
+
+  function createBoard(numberOfPairs) {
+    container.innerHTML = "";
+  }
 
   function flipcard() {
     if (lockBoard) return;
