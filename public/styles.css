@@ -74,31 +74,24 @@ h3 {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  width: 630px;
+  gap: 15px;
+  max-width: 630px;
   margin: 20px auto;
-  min-height: 640px;
-}
-
-#container::after {
-  content: "";
-  display: table;
-  clear: both;
+  min-height: auto;
+  padding: 15px;
 }
 
 [data-view="card"] {
   width: 100px;
   height: 140px;
+  flex: 0 0 100px;
   border: 1px solid var(--whiteColor);
   border-radius: 5px;
-  margin: 10px;
   cursor: pointer;
   background-color: var(--cardBackBaseColor);
   position: relative;
   transform-style: preserve-3d;
   transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-  transform:
-    0.5s ease-in-out,
-    opacity 0.3s ease;
   background: linear-gradient(
     135deg,
     var(--cardBackBaseColor) 22px,
@@ -285,23 +278,44 @@ h3 {
 @media screen and (max-width: 600px) {
   h1 {
     font-size: 1.8em;
+    margin-bottom: 5px;
   }
-  #container {
-    width: 95%;
-    padding: 10px;
+
+  h3,
+  p {
+    font-size: 16px;
+    margin: 5px 0;
+  }
+
+  .difficulty-constainer {
+    margin-bottom: 10px;
     gap: 5px;
   }
 
+  .diff-btn {
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+
+  #container {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 8px;
+    width: 95%;
+    max-width: 95vw;
+  }
+
   [data-view="card"] {
-    width: calc(25% - 10px);
-    height: 110px;
-    margin: 5px;
+    width: auto !important;
+    height: auto !important;
+    margin: 0 !important;
+    aspect-ratio: 1 / 1;
   }
 
   [data-item].flipped::after,
   [data-item].correct::after {
-    width: 70%;
-    height: 70%;
+    width: 65%;
+    height: 65%;
   }
 }
 

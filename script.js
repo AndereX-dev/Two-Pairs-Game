@@ -63,12 +63,22 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
     secondCard = this;
-    checkForMatch();
+    lockBoard = true;
+    setTimeout(() => {
+      checkForMatch();
+    }, 300);
   }
 
   function checkForMatch() {
+    if (!firstCard || !secondCard) return;
+
     let isMatch = firstCard.dataset.item === secondCard.dataset.item;
-    isMatch ? disableCards() : unflipCards();
+
+    if (isMatch) {
+      disableCards();
+    } else {
+      unflipCards();
+    }
   }
 
   function disableCards() {
@@ -80,6 +90,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     resetBoard();
     checkWin();
+    console.log(disableCards);
   }
 
   function unflipCards() {
@@ -90,6 +101,7 @@ document.addEventListener("DOMContentLoaded", () => {
       secondCard.classList.remove("flipped");
       resetBoard();
     }, 1000);
+    console.log(unflipCards);
   }
 
   function resetBoard() {
